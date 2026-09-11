@@ -1,0 +1,154 @@
+<div class="container-fluid">
+  <div class="container-card">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Filtros
+        </mat-panel-title>
+        <mat-panel-description>
+          PESQUISAR LOTE OUTROS CRÉDITOS/DEBITOS
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <form class="form" [formGroup]="debitoFormFilter">
+          <div class="row">
+            <div class="col-7">
+              <mat-form-field appearance="outline">
+                <mat-label>Instituição Resp</mat-label>
+                <input
+                  matInput
+                  placeholder="000 - SICOOB"
+                  formControlName="instituicaoResp">
+              </mat-form-field>
+            </div>
+
+            <div class="col-1 d-flex justify-content-center align-items-center">
+              <span>ID Lote</span>
+            </div>
+
+            <div class="col-2">
+              <mat-form-field appearance="outline">
+                <mat-label>De</mat-label>
+                <input
+                  matInput
+                  placeholder="ex: 1111"
+                  formControlName="inicioId">
+              </mat-form-field>
+            </div>
+
+            <div class="col-2">
+              <mat-form-field appearance="outline">
+                <mat-label>Até</mat-label>
+                <input
+                  matInput
+                  placeholder="ex: 4000"
+                  formControlName="finalId">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-7">
+              <mat-form-field appearance="outline">
+                <mat-label>Instituição</mat-label>
+                <input matInput placeholder="000 - SICOOB CENTRAL" formControlName="instituicao">
+              </mat-form-field>
+            </div>
+
+            <div class="col-1 d-flex justify-content-center align-items-center">
+              <span>Valor Lote</span>
+            </div>
+
+            <div class="col-2">
+              <mat-form-field appearance="outline">
+                <mat-label>De</mat-label>
+                <input
+                  matInput
+                  placeholder="ex: 1700"
+                  formControlName="valorLoteInicio">
+              </mat-form-field>
+            </div>
+
+            <div class="col-2">
+              <mat-form-field appearance="outline">
+                <mat-label>Até</mat-label>
+                <input
+                  matInput
+                  placeholder="ex: 20000"
+                  formControlName="valorLoteFinal">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Situação Lote</mat-label>
+
+                <mat-select formControlName="situacaoLote">
+                  <mat-option value="todas">Todas</mat-option>
+                  <mat-option value="aberto">Aberto</mat-option>
+                  <mat-option value="enviado">Enviado</mat-option>
+                  <mat-option value="confirmado">Confirmado</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="col-2 d-flex justify-content-center align-items-center">
+              <span>Data de Entrada</span>
+            </div>
+
+            <!-- DATA INICIAL -->
+            <div class="col-2">
+              <mat-form-field appearance="outline">
+                <mat-label>De</mat-label>
+
+                <input
+                  matInput
+                  formControlName="dataEntrada"
+                  [matDatepicker]="dataEntradaPicker"
+                  placeholder="DD/MM/AAAA"
+                />
+
+                <mat-datepicker-toggle
+                  matIconSuffix
+                  [for]="dataEntradaPicker">
+                </mat-datepicker-toggle>
+
+                <mat-datepicker #dataEntradaPicker></mat-datepicker>
+              </mat-form-field>
+            </div>
+
+            <!-- DATA FINAL -->
+            <div class="col-2">
+              <mat-form-field appearance="outline">
+                <mat-label>Até</mat-label>
+
+                <input
+                  matInput
+                  formControlName="dataFinal"
+                  [matDatepicker]="dataFinalPicker"
+                  placeholder="DD/MM/AAAA"
+                />
+
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="dataFinalPicker">
+                </mat-datepicker-toggle>
+
+                <mat-datepicker #dataFinalPicker></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+
+        <div class="row d-flex justify-content-end">
+          <div class="col-1">
+            <button matButton="filled">Pesquisar</button>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </div>
+</div>
