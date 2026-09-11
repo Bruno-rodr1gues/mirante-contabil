@@ -1,0 +1,17 @@
+<div class="container sidebar">
+  @for (item of sidebarList; track item.id) {
+    <div
+      class="sidebar-item"
+      routerLinkActive="active"
+      [routerLink]="item.path"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <span class="material-icons">
+          {{ item.icon }}
+      </span>
+      <span>
+        {{ item.name }}
+      </span>
+    </div>
+  }
+</div>
