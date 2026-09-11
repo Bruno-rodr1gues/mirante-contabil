@@ -1,0 +1,23 @@
+.container-fluid {
+  display: flex;
+  padding: 10px;
+}
+
+.container-card {
+  padding: 30px;
+  width: 100%;
+  background: #FDFEFE;
+  border-radius: 10px;
+}
+
+::ng-deep mat-card {
+  background: #FDFEFE !important;
+}
+
+::ng-deep mat-card-title-group {
+  padding: 10px !important;
+}
+
+::ng-deep mat-form-field {
+  width: 100%;
+}

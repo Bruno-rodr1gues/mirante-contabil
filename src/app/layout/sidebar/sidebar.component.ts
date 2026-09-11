@@ -5,6 +5,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   imports: [RouterLinkActive, RouterLink],
   selector: 'app-sidebar',
+  standalone: true,
   styleUrl: './sidebar.component.css',
   templateUrl: './sidebar.component.html',
 })
@@ -17,13 +18,13 @@ export class SidebarComponent implements OnInit {
         id: 1,
         name: 'dashboard',
         icon: 'home',
-        path: '/dashboard',
+        path: 'dashboard',
       },
       {
         id: 2,
         name: 'Creditos',
         icon: 'local_atm',
-        path: '/',
+        path: 'debitos',
       },
     ];
   }

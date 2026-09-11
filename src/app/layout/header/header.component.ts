@@ -6,6 +6,7 @@ import { filter } from 'rxjs';
 @Component({
   imports: [BreadcrumbComponent],
   selector: 'app-header',
+  standalone: true,
   styleUrl: './header.component.css',
   templateUrl: './header.component.html',
 })
@@ -15,11 +16,7 @@ export class HeaderComponent implements OnInit {
   private router = inject(Router);
 
   ngOnInit(): void {
-    this.router.events
-      .pipe(
-        filter(event => event instanceof NavigationEnd)
-      )
-    .subscribe(() => {
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.title = this.getRouterTitle();
     });
   }
