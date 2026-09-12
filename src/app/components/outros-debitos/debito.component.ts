@@ -5,20 +5,20 @@ import {
   MatDatepicker,
   MatDatepickerInput,
   MatDatepickerModule,
-  MatDatepickerToggle,
+  MatDatepickerToggle
 } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import {
   MatExpansionPanel,
   MatExpansionPanelDescription,
   MatExpansionPanelHeader,
-  MatExpansionPanelTitle,
+  MatExpansionPanelTitle
 } from '@angular/material/expansion';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatOption } from '@angular/material/core';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule, MatOption } from '@angular/material/core';
 import { MatSelect } from '@angular/material/select';
-import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButton } from '@angular/material/button';
+import { TableComponent } from '../table-component/table.component';
+import { LoteFilter } from '../../interfaces/lote-filter';
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -31,7 +31,6 @@ export const MY_DATE_FORMATS = {
     monthYearA11yLabel: 'MMMM YYYY',
   },
 };
-
 
 @Component({
   imports: [
@@ -54,7 +53,7 @@ export const MY_DATE_FORMATS = {
     MatOption,
     MatSelect,
     MatInput,
-    MatButton,
+    TableComponent,
   ],
   selector: 'app-outros-debitos',
   standalone: true,
@@ -68,6 +67,8 @@ export const MY_DATE_FORMATS = {
 export class DebitoComponent implements OnInit {
   debitoFormFilter!: FormGroup;
 
+  filtrosTabela?: LoteFilter;
+
   constructor(private dateAdapter: DateAdapter<Date>) {
     this.dateAdapter.setLocale('pt-BR');
   }
@@ -78,11 +79,27 @@ export class DebitoComponent implements OnInit {
       instituicao: new FormControl(''),
       inicioId: new FormControl(''),
       finalId: new FormControl(''),
-      situacaoLote: new FormControl(''),
+      situacaoLote: new FormControl('todas'),
       valorLoteInicio: new FormControl(''),
       valorLoteFinal: new FormControl(''),
       dataEntrada: new FormControl<Date | null>(null),
       dataFinal: new FormControl<Date | null>(null),
     });
+  }
+
+  protected search(): void {
+    const form = this.debitoFormFilter.getRawValue();
+
+    this.filtrosTabela = {
+      instituicaoResp: form.instituicaoResp || undefined,
+      instituicao: form.instituicao || undefined,
+      inicioId: form.inicioId ? Number(form.inicioId) : undefined,
+      finalId: form.finalId ? Number(form.finalId) : undefined,
+      valorLoteInicio: form.valorLoteInicio ? Number(form.valorLoteInicio) : undefined,
+      valorLoteFinal: form.valorLoteFinal ? Number(form.valorLoteFinal) : undefined,
+      situacaoLote: form.situacaoLote || undefined,
+      dataEntrada: form.dataEntrada || undefined,
+      dataFinal: form.dataFinal || undefined,
+    };
   }
 }

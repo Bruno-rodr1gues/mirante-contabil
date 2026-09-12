@@ -21,3 +21,17 @@
 ::ng-deep mat-form-field {
   width: 100%;
 }
+
+.btn {
+  background: #008272;
+  color: #fff;
+}
+
+.btn:hover {
+  background: #006559;
+}
+
+.btn:active {
+  background: #00383A;
+  color: white;
+}

@@ -23,7 +23,7 @@
             </div>
 
             <div class="col-1 d-flex justify-content-center align-items-center">
-              <span>ID Lote</span>
+              <span>ID LoteInterface</span>
             </div>
 
             <div class="col-2">
@@ -56,7 +56,7 @@
             </div>
 
             <div class="col-1 d-flex justify-content-center align-items-center">
-              <span>Valor Lote</span>
+              <span>Valor LoteInterface</span>
             </div>
 
             <div class="col-2">
@@ -84,7 +84,7 @@
 
             <div class="col-6">
               <mat-form-field appearance="outline">
-                <mat-label>Situação Lote</mat-label>
+                <mat-label>Situação LoteInterface</mat-label>
 
                 <mat-select formControlName="situacaoLote">
                   <mat-option value="todas">Todas</mat-option>
@@ -99,7 +99,6 @@
               <span>Data de Entrada</span>
             </div>
 
-            <!-- DATA INICIAL -->
             <div class="col-2">
               <mat-form-field appearance="outline">
                 <mat-label>De</mat-label>
@@ -120,7 +119,6 @@
               </mat-form-field>
             </div>
 
-            <!-- DATA FINAL -->
             <div class="col-2">
               <mat-form-field appearance="outline">
                 <mat-label>Até</mat-label>
@@ -144,11 +142,13 @@
         </form>
 
         <div class="row d-flex justify-content-end">
-          <div class="col-1">
-            <button matButton="filled">Pesquisar</button>
+          <div class="col-1 d-flex justify-content-end">
+            <button class="btn btn-light border" (click)="search()">Pesquisar</button>
           </div>
         </div>
       </div>
     </mat-expansion-panel>
+
+      <app-table-component [filtros]="filtrosTabela"></app-table-component>
   </div>
 </div>

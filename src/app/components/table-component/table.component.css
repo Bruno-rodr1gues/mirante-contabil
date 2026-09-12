@@ -1,0 +1,15 @@
+.mat-mdc-header-row {
+  background-color: #00383A;
+  color: white;
+}
+
+.btn:active {
+  background-color: #008272;
+  color: white;
+  transition: 1ms;
+}
+
+::ng-deep .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
+  background-color: white;
+  border-color: #008272;
+}
