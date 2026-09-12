@@ -4,12 +4,12 @@ import { DebitoComponent } from './components/outros-debitos/debito.component';
 
 export const routes: Routes = [
   {
-    path: 'dashboard',
+    path: '',
     component: DashboardComponent,
-    title: 'Dashboard Apresentativo',
+    title: 'Início',
     data: {
       breadcrumb: {
-        label: 'Dashboard',
+        label: 'Início',
       },
     },
   },
@@ -20,7 +20,6 @@ export const routes: Routes = [
     data: {
       breadcrumb: {
         label: 'Outros Créditos/Débitos',
-        parent: 'dashboard',
       },
     },
   },

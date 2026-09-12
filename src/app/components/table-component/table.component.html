@@ -1,0 +1,98 @@
+<div class="d-flex w-100 flex-column">
+  <div class="buttons-container d-flex mt-2">
+    <div class="p-2">
+      <button class="btn btn-light border">CONFIRMAR</button>
+    </div>
+    <div class="p-2">
+      <button class="btn btn-light border">ENVIAR</button>
+    </div>
+    <div class="p-2">
+      <button class="btn btn-light border">VISUALIZAR JUSTIFICATIVA</button>
+    </div>
+    <div class="p-2">
+      <button class="btn btn-light border">INCLUIR</button>
+    </div>
+    <div class="p-2">
+      <button class="btn btn-light border" [disabled]="checkItemSelected">ALTERAR</button>
+    </div>
+    <div class="p-2">
+      <button class="btn btn-light border" [disabled]="checkItemSelected">EXCLUIR</button>
+    </div>
+    <div class="p-2">
+      <button class="btn btn-light border" [disabled]="checkItemSelected">VISUALIZAR</button>
+    </div>
+  </div>
+
+  <div class="row d-flex p-2 w-100">
+    <table mat-table [dataSource]="dataTable" class="w-100">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="d-flex align-items-center h-100">
+            <section>
+            <span>
+              <mat-checkbox
+                [checked]="false"
+                (change)="selectAll()">
+              </mat-checkbox>
+            </span>
+            </section>
+
+            ID LoteInterface
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <div class="d-flex align-items-center h-100">
+            <section>
+              <span>
+              <mat-checkbox
+                [checked]="isSelected(element.id)"
+                (change)="selectItem(element.id)">
+              </mat-checkbox>
+            </span>
+            </section>
+            {{ element.id }}
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> Data de Entrada</th>
+        <td mat-cell *matCellDef="let element"> {{ element.nome }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="valor">
+        <th mat-header-cell *matHeaderCellDef> Valor</th>
+        <td mat-cell *matCellDef="let element"> {{ element.valor }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantLancamentos">
+        <th mat-header-cell *matHeaderCellDef> Quant. Lançamentos.</th>
+        <td mat-cell *matCellDef="let element"> {{ element.quantLancamentos }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="usuarioRegistro">
+        <th mat-header-cell *matHeaderCellDef> Usuário Registro</th>
+        <td mat-cell *matCellDef="let element"> {{ element.usuarioRegistro }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="usuarioAprovacao">
+        <th mat-header-cell *matHeaderCellDef> Usuário Provação</th>
+        <td mat-cell *matCellDef="let element"> {{ element.usuarioAprovacao }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="situacaoLote">
+        <th mat-header-cell *matHeaderCellDef> Situação LoteInterface</th>
+        <td mat-cell *matCellDef="let element"> {{ element.situacaoLote }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="dataHoraSituacaoLote">
+        <th mat-header-cell *matHeaderCellDef> Data/Hora Situação LoteInterface</th>
+        <td mat-cell *matCellDef="let element"> {{ element.dataHoraSituacaoLote }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

@@ -16,9 +16,9 @@ export class SidebarComponent implements OnInit {
     this.sidebarList = [
       {
         id: 1,
-        name: 'dashboard',
+        name: 'Início',
         icon: 'home',
-        path: 'dashboard',
+        path: '',
       },
       {
         id: 2,
