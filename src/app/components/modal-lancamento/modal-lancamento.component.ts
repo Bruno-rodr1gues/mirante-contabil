@@ -197,11 +197,9 @@ export class ModalLancamentoComponent implements OnInit {
       })),
     };
 
-    console.log('Payload a ser enviado:', payload);
 
     this.lancamentoService.saveLancamento(payload).subscribe((reponse) => {
       if (reponse) {
-        console.log(reponse);
         this.dialogRef.close();
         this.showAlert();
       }

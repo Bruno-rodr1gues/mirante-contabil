@@ -200,7 +200,6 @@ export class TableComponent implements OnInit, OnChanges, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('fechou a modal');
     });
   }
 
@@ -209,13 +208,11 @@ export class TableComponent implements OnInit, OnChanges, AfterViewInit {
       next: (value) => {
         value.forEach((item) => {
           item.dataHoraSituacaoLote = new Date(item.dataHoraSituacaoLote);
-          console.log(item);
         });
         this.originalDataTable = value;
         this.dataTable.data = [...value];
       },
       error: (error) => {
-        console.error('Erro:', error);
       },
     });
   }
