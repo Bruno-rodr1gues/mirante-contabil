@@ -1,0 +1,416 @@
+{
+  "lancamentos": [
+    {
+      "id": "1101",
+      "nome": "Liquidacao Financ Convenios - PA Central",
+      "valor": "12500050",
+      "quantLancamentos": 14,
+      "usuarioRegistro": "Marcos Vinicius Oliveira",
+      "usuarioAprovacao": "Henrique Xavier Ribeiro",
+      "situacaoLote": "Confirmado",
+      "dataHoraSituacaoLote": "2026-09-12T08:30:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4001 - COOPERATIVA UNIMAIS",
+      "dataEntrada": "2026-09-12"
+    },
+    {
+      "id": "1102",
+      "nome": "Tarifas Intercambio Eletronico - Lote 042",
+      "valor": "874000",
+      "quantLancamentos": 3,
+      "usuarioRegistro": "João Pedro Santos",
+      "usuarioAprovacao": "Maria Eduarda Lima",
+      "situacaoLote": "Enviado",
+      "dataHoraSituacaoLote": "2026-09-12T09:15:22.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4002 - COOPERATIVA CREDITO REAL",
+      "dataEntrada": "2026-09-12"
+    },
+    {
+      "id": "1103",
+      "nome": "Repasse Custodia Cheques - Sessao Matutina",
+      "valor": "4589015",
+      "quantLancamentos": 5,
+      "usuarioRegistro": "Carlos Eduardo Andrade",
+      "usuarioAprovacao": "Henrique Xavier Ribeiro",
+      "situacaoLote": "Confirmado",
+      "dataHoraSituacaoLote": "2026-09-12T10:00:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4001 - COOPERATIVA UNIMAIS",
+      "dataEntrada": "2026-09-12"
+    },
+    {
+      "id": "1104",
+      "nome": "Pagamento Fornecedores - Lote A",
+      "valor": "3250000",
+      "quantLancamentos": 12,
+      "usuarioRegistro": "Ana Paula Silva",
+      "usuarioAprovacao": "Roberto Costa Ferraz",
+      "situacaoLote": "Processando",
+      "dataHoraSituacaoLote": "2026-09-13T08:15:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4003 - COOPERATIVA AGROCRED",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1105",
+      "nome": "Reembolso Despesas Viagem Corp - PA Centro",
+      "valor": "185075",
+      "quantLancamentos": 2,
+      "usuarioRegistro": "Mariana Souza Rocha",
+      "usuarioAprovacao": "Fernanda Lima Castro",
+      "situacaoLote": "Aberto",
+      "dataHoraSituacaoLote": "2026-09-13T09:00:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4001 - COOPERATIVA UNIMAIS",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1106",
+      "nome": "Folha Mensal Estagiarios e Aprendizes",
+      "valor": "1420000",
+      "quantLancamentos": 8,
+      "usuarioRegistro": "Lucas Mendes Prado",
+      "usuarioAprovacao": "Henrique Xavier Ribeiro",
+      "situacaoLote": "Confirmado",
+      "dataHoraSituacaoLote": "2026-09-13T09:45:30.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4001 - COOPERATIVA UNIMAIS",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1107",
+      "nome": "Adiantamento Contrato Servicos TI",
+      "valor": "4500000",
+      "quantLancamentos": 1,
+      "usuarioRegistro": "Carlos Alberto Vieira",
+      "usuarioAprovacao": "Patricia Rocha Nogueira",
+      "situacaoLote": "Enviado",
+      "dataHoraSituacaoLote": "2026-09-13T10:20:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4005 - COOPERATIVA CREDSEMPRE",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1108",
+      "nome": "Pagamento Concessionarias Energia/Agua",
+      "valor": "875030",
+      "quantLancamentos": 4,
+      "usuarioRegistro": "Beatriz Alves Rezende",
+      "usuarioAprovacao": "Roberto Costa Ferraz",
+      "situacaoLote": "Confirmado",
+      "dataHoraSituacaoLote": "2026-09-13T11:05:12.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4001 - COOPERATIVA UNIMAIS",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1109",
+      "nome": "Taxas Bancarias Manutencao Conta - Setembro",
+      "valor": "62000",
+      "quantLancamentos": 1,
+      "usuarioRegistro": "SISTEMA AUTOMATICO",
+      "usuarioAprovacao": "ROTINA BATCH BCN",
+      "situacaoLote": "Finalizado",
+      "dataHoraSituacaoLote": "2026-09-13T11:30:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4001 - COOPERATIVA UNIMAIS",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1110",
+      "nome": "Transferencia Interbancaria Liquidacao SPB",
+      "valor": "12000000",
+      "quantLancamentos": 2,
+      "usuarioRegistro": "Gabriel Santos Martins",
+      "usuarioAprovacao": "Maria Eduarda Lima",
+      "situacaoLote": "Aguardando Aprovacao",
+      "dataHoraSituacaoLote": "2026-09-13T12:00:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4002 - COOPERATIVA CREDITO REAL",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1111",
+      "nome": "Compra Insumos Equipamentos TI",
+      "valor": "2340000",
+      "quantLancamentos": 6,
+      "usuarioRegistro": "Diego Ferreira Borges",
+      "usuarioAprovacao": "Fernanda Lima Castro",
+      "situacaoLote": "Rejeitado",
+      "dataHoraSituacaoLote": "2026-09-13T13:10:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4003 - COOPERATIVA AGROCRED",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1112",
+      "nome": "Ajuste Contabil Manual - Correcao Tarifa",
+      "valor": "35000",
+      "quantLancamentos": 1,
+      "usuarioRegistro": "Renata Guimaraes Silva",
+      "usuarioAprovacao": "Henrique Xavier Ribeiro",
+      "situacaoLote": "Aberto",
+      "dataHoraSituacaoLote": "2026-09-13T13:45:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4001 - COOPERATIVA UNIMAIS",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1113",
+      "nome": "Rescisoes Contratuais - Verbas Rescisorias",
+      "valor": "6780045",
+      "quantLancamentos": 3,
+      "usuarioRegistro": "Ana Paula Silva",
+      "usuarioAprovacao": "Patricia Rocha Nogueira",
+      "situacaoLote": "Enviado",
+      "dataHoraSituacaoLote": "2026-09-13T14:15:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4001 - COOPERATIVA UNIMAIS",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1114",
+      "nome": "Servicos Manutencao Predial Preventiva",
+      "valor": "940000",
+      "quantLancamentos": 2,
+      "usuarioRegistro": "Mariana Souza Rocha",
+      "usuarioAprovacao": "Roberto Costa Ferraz",
+      "situacaoLote": "Confirmado",
+      "dataHoraSituacaoLote": "2026-09-13T14:50:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4002 - COOPERATIVA CREDITO REAL",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1115",
+      "nome": "Renovacao Licenciamento Software ERP",
+      "valor": "1890000",
+      "quantLancamentos": 1,
+      "usuarioRegistro": "Lucas Mendes Prado",
+      "usuarioAprovacao": "Henrique Xavier Ribeiro",
+      "situacaoLote": "Processando",
+      "dataHoraSituacaoLote": "2026-09-13T15:20:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4001 - COOPERATIVA UNIMAIS",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1116",
+      "nome": "Pagamento Prestadores Servico PJ",
+      "valor": "5400000",
+      "quantLancamentos": 9,
+      "usuarioRegistro": "Beatriz Alves Rezende",
+      "usuarioAprovacao": "Maria Eduarda Lima",
+      "situacaoLote": "Confirmado",
+      "dataHoraSituacaoLote": "2026-09-13T15:55:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4005 - COOPERATIVA CREDSEMPRE",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1117",
+      "nome": "Estorno Lote Duplicado #884 - Tesouraria",
+      "valor": "125000",
+      "quantLancamentos": 1,
+      "usuarioRegistro": "Carlos Eduardo Andrade",
+      "usuarioAprovacao": "Patricia Rocha Nogueira",
+      "situacaoLote": "Cancelado",
+      "dataHoraSituacaoLote": "2026-09-13T16:10:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4001 - COOPERATIVA UNIMAIS",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1118",
+      "nome": "Comissoes Corretagem de Vendas Q3",
+      "valor": "8930020",
+      "quantLancamentos": 15,
+      "usuarioRegistro": "Gabriel Santos Martins",
+      "usuarioAprovacao": "Roberto Costa Ferraz",
+      "situacaoLote": "Aguardando Aprovacao",
+      "dataHoraSituacaoLote": "2026-09-13T16:30:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4003 - COOPERATIVA AGROCRED",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1119",
+      "nome": "Verba Midia e Marketing Digital",
+      "valor": "2750000",
+      "quantLancamentos": 4,
+      "usuarioRegistro": "Diego Ferreira Borges",
+      "usuarioAprovacao": "Fernanda Lima Castro",
+      "situacaoLote": "Enviado",
+      "dataHoraSituacaoLote": "2026-09-13T17:00:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4001 - COOPERATIVA UNIMAIS",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1120",
+      "nome": "Suprimento Fundo Fixo Caixa - PA 03",
+      "valor": "50000",
+      "quantLancamentos": 1,
+      "usuarioRegistro": "João Pedro Santos",
+      "usuarioAprovacao": "Henrique Xavier Ribeiro",
+      "situacaoLote": "Finalizado",
+      "dataHoraSituacaoLote": "2026-09-13T17:15:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4001 - COOPERATIVA UNIMAIS",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1121",
+      "nome": "Pagamento Aluguel Imovel Filial 02",
+      "valor": "1650000",
+      "quantLancamentos": 1,
+      "usuarioRegistro": "Ana Paula Silva",
+      "usuarioAprovacao": "Maria Eduarda Lima",
+      "situacaoLote": "Confirmado",
+      "dataHoraSituacaoLote": "2026-09-13T17:40:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4002 - COOPERATIVA CREDITO REAL",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1122",
+      "nome": "Compra Moveis Escritorio Central",
+      "valor": "1120000",
+      "quantLancamentos": 3,
+      "usuarioRegistro": "Mariana Souza Rocha",
+      "usuarioAprovacao": "Patricia Rocha Nogueira",
+      "situacaoLote": "Aberto",
+      "dataHoraSituacaoLote": "2026-09-13T18:00:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4001 - COOPERATIVA UNIMAIS",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1123",
+      "nome": "Lote Extraordinario Tributos ISS/INSS",
+      "valor": "21000000",
+      "quantLancamentos": 7,
+      "usuarioRegistro": "Lucas Mendes Prado",
+      "usuarioAprovacao": "Roberto Costa Ferraz",
+      "situacaoLote": "Processando",
+      "dataHoraSituacaoLote": "2026-09-13T18:25:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4001 - COOPERATIVA UNIMAIS",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1124",
+      "nome": "Reembolso Devolucao Mercadoria E-commerce",
+      "valor": "349080",
+      "quantLancamentos": 5,
+      "usuarioRegistro": "Beatriz Alves Rezende",
+      "usuarioAprovacao": "Fernanda Lima Castro",
+      "situacaoLote": "Enviado",
+      "dataHoraSituacaoLote": "2026-09-13T18:50:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4005 - COOPERATIVA CREDSEMPRE",
+      "dataEntrada": "2026-09-13"
+    },
+    {
+      "id": "1125",
+      "nome": "Adiantamento Primeira Parcela 13 Salario",
+      "valor": "14500000",
+      "quantLancamentos": 28,
+      "usuarioRegistro": "Carlos Alberto Vieira",
+      "usuarioAprovacao": "Henrique Xavier Ribeiro",
+      "situacaoLote": "Confirmado",
+      "dataHoraSituacaoLote": "2026-09-13T19:10:00.000Z",
+      "instituicaoResp": "0001 - SICOOB CENTRAL",
+      "instituicao": "4001 - COOPERATIVA UNIMAIS",
+      "dataEntrada": "2026-09-13"
+    }
+  ],
+  "lancamentoSesh": [
+    {
+      "id": "1",
+      "contaCorrenteSesh": {
+        "contaCorrente": "00043218-9",
+        "valor": "1250000",
+        "historico": "manual",
+        "estorno": false,
+        "documento": "DOC-2026-8819",
+        "descricao": "Ajuste de Tarifa Interbancaria Pendente",
+        "situacao": "Pendente"
+      },
+      "documentoCscSesh": {
+        "pa": "cooperativa",
+        "idEvento": "EVT-90412",
+        "complementoHistorico": "Complemento referente ao repasse da cooperativa central",
+        "situacao": "Aguardando Processamento CCO",
+        "idDocCSC": "CSC-551029"
+      },
+      "anexos": [
+        {
+          "nome": "Comprovante_Transacao_CSC551029.pdf",
+          "descricao": "Comprovante de envio de arquivo de lote",
+          "dataInclusao": "2026-09-13T20:15:00.000Z",
+          "usuarioId": 1042,
+          "arquivo": {}
+        }
+      ]
+    },
+    {
+      "contaCorrente": {
+        "contaCorrente": "342324",
+        "valor": "432423",
+        "historico": "manual",
+        "estorno": true,
+        "documento": "ere",
+        "descricao": "teste",
+        "situacao": "Pendente"
+      },
+      "documentoCsc": {
+        "pa": "cooperativa",
+        "idEvento": "2344",
+        "complementoHistorico": "testando novamente",
+        "situacao": "Aguardando Processamento CCO",
+        "idDocCSC": "43243"
+      },
+      "anexos": [
+        {
+          "nome": "Currículo - Bruno Mikael.pdf",
+          "descricao": "Currículo - Bruno Mikael.pdf",
+          "dataInclusao": "2026-09-14T02:28:03.959Z",
+          "usuarioId": 1,
+          "arquivo": {}
+        }
+      ],
+      "id": "dkISEp5N9gA"
+    },
+    {
+      "contaCorrente": {
+        "contaCorrente": "54354",
+        "valor": "3434543534",
+        "historico": "manual",
+        "estorno": true,
+        "documento": "reers",
+        "descricao": "rewre",
+        "situacao": "Pendente"
+      },
+      "documentoCsc": {
+        "pa": "cooperativa",
+        "idEvento": "4334",
+        "complementoHistorico": "4232",
+        "situacao": "Aguardando Processamento CCO",
+        "idDocCSC": "54334"
+      },
+      "anexos": [
+        {
+          "nome": "Currículo - Bruno Mikael.pdf",
+          "descricao": "Currículo - Bruno Mikael.pdf",
+          "dataInclusao": "2026-09-14T03:06:41.464Z",
+          "usuarioId": 1,
+          "arquivo": {}
+        }
+      ],
+      "id": "BJ3V_Sn5sa4"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, inject, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import {
   MatCell,
   MatCellDef,
@@ -10,10 +10,16 @@ import {
   MatRow,
   MatRowDef,
   MatTable,
+  MatTableDataSource
 } from '@angular/material/table';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { LoteInterface } from '../../interfaces/lote-interface';
 import { LoteFilter } from '../../interfaces/lote-filter';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalLancamentoComponent } from '../modal-lancamento/modal-lancamento.component';
+import { LancamentoService } from '../../services/lancamento.service';
+import { CurrencyPipe, DatePipe } from '@angular/common';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   imports: [
@@ -28,14 +34,19 @@ import { LoteFilter } from '../../interfaces/lote-filter';
     MatRow,
     MatRowDef,
     MatCheckbox,
+    DatePipe,
+    MatPaginator,
+    CurrencyPipe,
   ],
+  standalone: true,
   selector: 'app-table-component',
   styleUrl: './table.component.css',
   templateUrl: './table.component.html',
 })
-export class TableComponent implements OnInit, OnChanges {
-  protected dataTable: LoteInterface[] = [];
+export class TableComponent implements OnInit, OnChanges, AfterViewInit {
+  protected dataTable = new MatTableDataSource<LoteInterface>([]);
   protected originalDataTable: LoteInterface[] = [];
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   displayedColumns: string[] = [
     'id',
@@ -54,47 +65,22 @@ export class TableComponent implements OnInit, OnChanges {
 
   @Input() filtros?: LoteFilter;
 
-  ngOnInit() {
-    this.originalDataTable = [
-      {
-        id: 1,
-        nome: 'teste',
-        valor: '1000',
-        quantLancamentos: 1,
-        usuarioRegistro: 'testando novamente',
-        usuarioAprovacao: 'Henrique teste',
-        situacaoLote: 'Aberto',
-        dataHoraSituacaoLote: new Date(),
-      },
-      {
-        id: 2,
-        nome: 'teste 2',
-        valor: '5000',
-        quantLancamentos: 3,
-        usuarioRegistro: 'João',
-        usuarioAprovacao: 'Maria',
-        situacaoLote: 'Enviado',
-        dataHoraSituacaoLote: new Date(),
-      },
-      {
-        id: 3,
-        nome: 'teste 3',
-        valor: '15000',
-        quantLancamentos: 5,
-        usuarioRegistro: 'Carlos',
-        usuarioAprovacao: 'Henrique',
-        situacaoLote: 'Confirmado',
-        dataHoraSituacaoLote: new Date(),
-      },
-    ];
+  dialog = inject(MatDialog);
 
-    this.dataTable = [...this.originalDataTable];
+  lancamentoService = inject(LancamentoService);
+
+  ngOnInit() {
+    this.findAllLancamentos();
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['filtros'] && this.filtros) {
       this.aplicarFiltro(this.filtros);
     }
+  }
+
+  ngAfterViewInit() {
+    this.dataTable.paginator = this.paginator;
   }
 
   protected selectItem(itemId?: number): void {
@@ -116,7 +102,7 @@ export class TableComponent implements OnInit, OnChanges {
   }
 
   protected selectAll() {
-    const ids = this.dataTable.map((element) => element.id);
+    const ids = this.dataTable.data.map((element) => element.id);
 
     if (this.listIds.length === ids.length) {
       this.listIds = [];
@@ -135,28 +121,102 @@ export class TableComponent implements OnInit, OnChanges {
   }
 
   protected aplicarFiltro(filtros: LoteFilter): void {
-    this.dataTable = this.originalDataTable.filter((lote) => {
-      if (filtros.inicioId !== undefined && lote.id < filtros.inicioId) {
+    this.dataTable.data = this.originalDataTable.filter((lote) => {
+      // 1. Filtro por ID (Início e Fim)
+      if (
+        filtros.inicioId !== null &&
+        filtros.inicioId !== undefined &&
+        lote.id < filtros.inicioId
+      ) {
+        return false;
+      }
+      if (filtros.finalId !== null && filtros.finalId !== undefined && lote.id > filtros.finalId) {
         return false;
       }
 
-      if (filtros.finalId !== undefined && lote.id > filtros.finalId) {
+      // 2. Filtro por Valor do Lote (Início e Fim)
+      const valorNum = parseFloat(lote.valor);
+      if (
+        filtros.valorLoteInicio !== null &&
+        filtros.valorLoteInicio !== undefined &&
+        valorNum < filtros.valorLoteInicio
+      ) {
+        return false;
+      }
+      if (
+        filtros.valorLoteFinal !== null &&
+        filtros.valorLoteFinal !== undefined &&
+        valorNum > filtros.valorLoteFinal
+      ) {
         return false;
       }
 
-      if (filtros.valorLoteInicio !== undefined && Number(lote.valor) < filtros.valorLoteInicio) {
+      if (
+        filtros.instituicaoResp &&
+        !lote.instituicaoResp?.toLowerCase().includes(filtros.instituicaoResp.toLowerCase().trim())
+      ) {
+        return false;
+      }
+      if (
+        filtros.instituicao &&
+        !lote.instituicao?.toLowerCase().includes(filtros.instituicao.toLowerCase().trim())
+      ) {
         return false;
       }
 
-      if (filtros.valorLoteFinal !== undefined && Number(lote.valor) > filtros.valorLoteFinal) {
-        return false;
+      const dataLote = new Date(lote.dataHoraSituacaoLote).getTime();
+
+      if (filtros.dataEntrada) {
+        const dataInicio = new Date(filtros.dataEntrada);
+        dataInicio.setHours(0, 0, 0, 0);
+        if (dataLote < dataInicio.getTime()) return false;
       }
 
-      return !(
+      if (filtros.dataFinal) {
+        const dataFim = new Date(filtros.dataFinal);
+        dataFim.setHours(23, 59, 59, 999);
+        if (dataLote > dataFim.getTime()) return false;
+      }
+
+      if (
         filtros.situacaoLote &&
         filtros.situacaoLote !== 'todas' &&
         lote.situacaoLote.toLowerCase() !== filtros.situacaoLote.toLowerCase()
-      );
+      ) {
+        return false;
+      }
+
+      return true;
+    });
+  }
+
+  protected openDialog() {
+    const dialogRef = this.dialog.open(ModalLancamentoComponent, {
+      width: '110vh',
+      maxWidth: '200vh',
+      minWidth: '20vw',
+      maxHeight: '90vh',
+      minHeight: '40vh',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('fechou a modal');
+    });
+  }
+
+  private findAllLancamentos() {
+    this.lancamentoService.findAllLancamentos().subscribe({
+      next: (value) => {
+        value.forEach((item) => {
+          item.dataHoraSituacaoLote = new Date(item.dataHoraSituacaoLote);
+          console.log(item);
+        });
+        this.originalDataTable = value;
+        this.dataTable.data = [...value];
+      },
+      error: (error) => {
+        console.error('Erro:', error);
+      },
     });
   }
 }

@@ -1,0 +1,288 @@
+<div class="container-fluid p-0">
+  <mat-card appearance="outlined" class="d-flex w-100 overflow-hidden">
+    <mat-card-header class="mb-5">
+      <mat-card-title>Incluir Lançamento</mat-card-title>
+      <mat-card-subtitle>Conta Corrente</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="lancamentoForm" (ngSubmit)="onSubmit()">
+
+        <div formGroupName="contaCorrenteSesh">
+
+          <div class="row mb-4">
+            <div class="col-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Conta Corrente</mat-label>
+                <input type="text" matInput formControlName="contaCorrente"  mask="0*-0">
+                <button type="button" matSuffix matIconButton aria-label="search" (click)="findCurrentAccount()">
+                  <mat-icon>search</mat-icon>
+                </button>
+                @if (!lancamentoForm.controls['contaCorrenteSesh'].get('contaCorrente')?.value) {
+                  <mat-error>
+                    O campo de conta corrente é obrigatório
+                  </mat-error>
+                }
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Valor</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  formControlName="valor"
+                  mask="00.00||100.00||0,000.00||00,000.00||000,000.00||0,000,000.00||00,000,000.00">
+                @if (!lancamentoForm.controls['contaCorrenteSesh'].get('valor')?.value) {
+                  <mat-error>
+                    O campo de valor é obrigatório
+                  </mat-error>
+                }
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label>Histórico</mat-label>
+                <mat-select formControlName="historico">
+                  <mat-option value="manual">Lançamento Manual</mat-option>
+                </mat-select>
+
+                @if (!lancamentoForm.controls['contaCorrenteSesh'].get('historico')?.value) {
+                  <mat-error>
+                    O campo de histórico é obrigatório
+                  </mat-error>
+                }
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col">
+              <section>
+              <span>
+              <mat-checkbox formControlName="estorno">
+                Estorno
+              </mat-checkbox>
+            </span>
+              </section>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Documento</mat-label>
+                <input type="text" matInput formControlName="documento" mask="S*">
+
+                @if (!lancamentoForm.controls['contaCorrenteSesh'].get('documento')?.value) {
+                  <mat-error>
+                    O campo de documento é obrigatório
+                  </mat-error>
+                }
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label>Descrição</mat-label>
+                <textarea type="text" matInput formControlName="descricao"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Situação</mat-label>
+                <input type="text" matInput formControlName="situacao">
+
+                @if (!lancamentoForm.controls['contaCorrenteSesh'].get('situacao')?.value) {
+                  <mat-error>
+                    O campo situação é obrigatório
+                  </mat-error>
+                }
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <mat-card-header class="mb-5">
+          <mat-card-subtitle>Seção Documento CSC</mat-card-subtitle>
+        </mat-card-header>
+
+        <div formGroupName="documentoCscSesh">
+
+          <div class="row mb-4">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label>PA</mat-label>
+                <mat-select formControlName="pa">
+                  <mat-option value="cooperativa">Cooperativa</mat-option>
+                </mat-select>
+
+                @if (!lancamentoForm.controls['documentoCscSesh'].get('pa')?.value) {
+                  <mat-error>
+                    o campo situação é obrigatório
+                  </mat-error>
+                }
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-5">
+              <mat-form-field appearance="outline">
+                <mat-label>ID Evento</mat-label>
+                <input type="text" matInput formControlName="idEvento" mask="0*-0">
+                <button type="button" matSuffix matIconButton aria-label="search" (click)="findEvent()">
+                  <mat-icon>search</mat-icon>
+                </button>
+
+                @if (!lancamentoForm.controls['documentoCscSesh'].get('idEvento')?.value) {
+                  <mat-error>
+                    O campo de ID do evento é obrigatório
+                  </mat-error>
+                }
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label>Compl. Histórico</mat-label>
+                <textarea type="text" matInput formControlName="complementoHistorico"></textarea>
+
+                @if (!lancamentoForm.controls['documentoCscSesh'].get('complementoHistorico')?.value) {
+                  <mat-error>
+                    O campo de complemento do histórico é obrigatório
+                  </mat-error>
+                }
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label>Situação</mat-label>
+                <input type="text" matInput formControlName="situacao">
+
+                @if (!lancamentoForm.controls['documentoCscSesh'].get('situacao')?.value) {
+                  <mat-error>
+                    A campo de situação é obrigatório
+                  </mat-error>
+                }
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label>ID Doc CSC</mat-label>
+                <input type="text" matInput formControlName="idDocCSC" mask="0*-0">
+
+                @if (!lancamentoForm.controls['documentoCscSesh'].get('idDocCSC')?.value) {
+                  <mat-error>
+                    A campo de situação é obrigatório
+                  </mat-error>
+                }
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <mat-card-header class="mb-5">
+          <mat-card-subtitle>Seção Documento CSC</mat-card-subtitle>
+        </mat-card-header>
+
+        <div class="w-100 overflow-x-auto">
+          <table class="w-100" mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef></th>
+
+              <td mat-cell *matCellDef="let element; let i = index">
+                <mat-checkbox
+                  [checked]="selectedDocumentIndex === i"
+                  (change)="selectDocument(i)">
+                </mat-checkbox>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nome">
+              <th mat-header-cell *matHeaderCellDef>Nome Reduzido do Arquivo</th>
+              <td mat-cell *matCellDef="let element"> {{ element.get('nome')?.value }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="descricao">
+              <th mat-header-cell *matHeaderCellDef>Descrição</th>
+              <td mat-cell *matCellDef="let element"> {{ element.get('descricao')?.value }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="dataInclusao">
+              <th mat-header-cell *matHeaderCellDef>Data Inclusão</th>
+              <td mat-cell *matCellDef="let element"> {{ element.get('dataInclusao')?.value | date:'dd/MM/yyyy HH:mm:ss' }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="usuarioId">
+              <th mat-header-cell *matHeaderCellDef>ID Usuário</th>
+              <td mat-cell *matCellDef="let element"> {{ element.get('usuarioId')?.value }}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+                Ainda não há arquivos
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="row mt-2 mb-2 d-flex justify-content-end align-content-end">
+          <div class="col d-flex justify-content-end">
+            <button type="button" class="btn btn-light border m-1" (click)="viewDocument()">Visualizar</button>
+            <input type="file" #fileInput class="d-none" (change)="putDocument($event)">
+            <button type="button" class="btn btn-light border m-1" (click)="fileInput.click()">Incluir</button>
+            <button type="button" class="btn btn-light borde m-1" (click)="deleteDocument()">Excluir</button>
+          </div>
+        </div>
+      </form>
+
+      <mat-divider></mat-divider>
+
+      <div class="row">
+        <mat-checkbox
+          type="button"
+          (change)="selectItem()">
+          Manter dados na tela
+        </mat-checkbox>
+      </div>
+
+      <div class="row">
+        <div class="col d-flex justify-content-end">
+          <button class="btn btn-light btn-save border m-1"
+                  [disabled]="lancamentoForm.invalid"
+                  (click)="onSubmit()"
+          type="submit">INCLUIR</button>
+          <button class="btn btn-light borde m-1" (click)="dialogClose()">Fechar</button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

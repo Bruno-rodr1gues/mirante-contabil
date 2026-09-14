@@ -1,0 +1,23 @@
+.btn-save {
+  background: #008272;
+  color: #fff;
+}
+
+.btn-save:hover {
+  background: #006559;
+}
+
+.btn-save:active {
+  background: #00383A;
+  color: white;
+}
+
+::ng-deep mat-header-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+::ng-deep mat-row {
+  display: flex;
+  justify-content: space-between;
+}

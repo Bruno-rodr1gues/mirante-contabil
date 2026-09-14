@@ -19,6 +19,7 @@ import { MatSelect } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { TableComponent } from '../table-component/table.component';
 import { LoteFilter } from '../../interfaces/lote-filter';
+import { NgxMaskDirective } from 'ngx-mask';
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -54,6 +55,7 @@ export const MY_DATE_FORMATS = {
     MatSelect,
     MatInput,
     TableComponent,
+    NgxMaskDirective,
   ],
   selector: 'app-outros-debitos',
   standalone: true,
